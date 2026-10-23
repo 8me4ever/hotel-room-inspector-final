@@ -1,0 +1,13 @@
+data/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.key
+*.pem
+*.sqlite*
+*.db
+node_modules/
+.venv/
+.DS_Store
+Thumbs.db

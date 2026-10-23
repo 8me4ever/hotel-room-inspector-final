@@ -1,0 +1,371 @@
+{
+  "kind": "recorded_conversation_vision",
+  "version": "2026-10-21-2",
+  "analyzer": "当前对话助手的视觉观察，离线写入",
+  "realtime": false,
+  "api_called": false,
+  "limitations": [
+    "生成图且已知生成目标，非独立盲测。",
+    "当前样例不可用于推导真实酒店准确率或漏检率。",
+    "网页加载已记录观察，不是在页面请求时重新识别。",
+    "问题框为对话观察后的近似位置，不是像素级标注。",
+    "本次11张照片全部由ChatGPT内置imagegen生成，无实拍。",
+    "标准任务图为分别生成的合成场景，不能证明来自同一真实客房。",
+    "现场核实及放房仅为模拟，不证明真实异味、布草更换、设备或消毒。"
+  ],
+  "photos": [
+    {
+      "file": "bed-clean.png",
+      "zone": "bedroom",
+      "sha256": "a55c2bce3732aa35838c5e9c8b8fe8c4a075786075e885561ff43974f52963b1",
+      "items": [
+        {
+          "id": "bed_neat",
+          "status": "pass",
+          "evidence": "床面与两个枕头整理齐整；可见正常轻微布料褶皱。",
+          "bbox": null
+        },
+        {
+          "id": "linen_clean",
+          "status": "pass",
+          "evidence": "可见白色床面及枕头未发现明显污渍，不能证明布草已更换。",
+          "bbox": null
+        },
+        {
+          "id": "litter",
+          "status": "pass",
+          "evidence": "床边、前方可见地面及两个床头柜表面未发现明显垃圾；床底与未拍区域未覆盖。",
+          "bbox": null
+        },
+        {
+          "id": "floor_clean",
+          "status": "pass",
+          "evidence": "可见前方及两侧地面呈正常石材纹理，未发现明显异常污渍。",
+          "bbox": null
+        }
+      ],
+      "record_id": "conversation-photo-1",
+      "usable": true,
+      "quality_reason": "已在对话中打开原图观察；只对可见项目作结论。",
+      "capture_tasks": [
+        "bed_overview"
+      ]
+    },
+    {
+      "file": "bed-dirty.png",
+      "zone": "bedroom",
+      "sha256": "4c1309a564af62aae880fc538d7fc4312b5b900d161ff64451231b8b4f0b21d6",
+      "items": [
+        {
+          "id": "bed_neat",
+          "status": "pass",
+          "evidence": "床铺整体整理齐整，正常褶皱不作为缺陷。",
+          "bbox": null
+        },
+        {
+          "id": "linen_clean",
+          "status": "fail",
+          "evidence": "白色床面右侧中下部可见不规则棕色痕迹，疑似污渍，应现场核实并处理。",
+          "location": "画面右侧床面，约位于横向70%、纵向54%处",
+          "bbox": [
+            0.64,
+            0.49,
+            0.74,
+            0.59
+          ]
+        },
+        {
+          "id": "litter",
+          "status": "fail",
+          "evidence": "画面左下地面可见纸团状白色物体，应清理后复查。",
+          "location": "画面左下地面，约位于横向15%、纵向89%处",
+          "bbox": [
+            0.11,
+            0.85,
+            0.19,
+            0.92
+          ]
+        },
+        {
+          "id": "floor_clean",
+          "status": "pass",
+          "evidence": "纸团以外的可见地面未发现明显污渍；垃圾问题已单独列项。",
+          "bbox": null
+        }
+      ],
+      "record_id": "conversation-photo-2",
+      "usable": true,
+      "quality_reason": "已在对话中打开原图观察；只对可见项目作结论。",
+      "capture_tasks": [
+        "bed_overview"
+      ]
+    },
+    {
+      "file": "bath-clean.png",
+      "zone": "bathroom",
+      "sha256": "b1471e7de3a351bf13aadc82701ba8edd4213345b53b66d5540cc1a49260d01d",
+      "items": [
+        {
+          "id": "basin_clean",
+          "status": "pass",
+          "evidence": "可见台盆及台面未发现明显污渍或遗留垃圾；不证明已经消毒。",
+          "bbox": null
+        },
+        {
+          "id": "toilet_clean",
+          "status": "pass",
+          "evidence": "马桶座圈抬起，内壁和外部可见表面未发现明显污渍；隐蔽及遮挡处不作判断。",
+          "bbox": null
+        },
+        {
+          "id": "towels",
+          "status": "unknown",
+          "evidence": "开放架内可见两件叠放的白色巾类布草；可数出两件，但图片不足以严格核实是否为房型要求的浴巾类型与规格。",
+          "suggestion": "结合标准摆放照或现场核实物品类型与规格",
+          "bbox": null
+        },
+        {
+          "id": "amenities",
+          "status": "unknown",
+          "evidence": "托盘内可见两件长条包装物；包装细节不足以确认都是完整且符合标准的牙具套装。",
+          "suggestion": "补拍包装近照，或现场核对",
+          "bbox": null
+        }
+      ],
+      "record_id": "conversation-photo-3",
+      "usable": true,
+      "quality_reason": "已在对话中打开原图观察；只对可见项目作结论。",
+      "capture_tasks": [
+        "basin"
+      ]
+    },
+    {
+      "file": "bed-hair-detail.png",
+      "zone": "bedroom",
+      "usable": true,
+      "quality_reason": "床品局部近照清晰，可以观察纤细异物，但没有覆盖床铺全景与大部分地面。",
+      "items": [
+        {
+          "id": "bed_neat",
+          "status": "unknown",
+          "evidence": "只有床品局部近照，无法核实整床和枕头整理状态。",
+          "bbox": null
+        },
+        {
+          "id": "linen_clean",
+          "status": "fail",
+          "evidence": "白色床品中部偏右可见两根细长弯曲暗色异物，形态疑似毛发，需清理并现场核实。",
+          "bbox": [
+            0.39,
+            0.24,
+            0.7,
+            0.49
+          ]
+        },
+        {
+          "id": "litter",
+          "status": "unknown",
+          "evidence": "床边、桌面及大部分地面未拍到，无法核实垃圾与遗留物。",
+          "bbox": null
+        },
+        {
+          "id": "floor_clean",
+          "status": "unknown",
+          "evidence": "画面主要是床品，仅见少量边缘地面，不能核实地面清洁。",
+          "bbox": null
+        }
+      ],
+      "record_id": "conversation-photo-4",
+      "sha256": "b532c637c392eb3306c92e1c01a3c599a400481a2ad571ee4fa9c1715b9095da",
+      "capture_tasks": [
+        "bed_detail"
+      ]
+    },
+    {
+      "file": "bath-basin-stain.png",
+      "zone": "bathroom",
+      "usable": true,
+      "quality_reason": "台盆、台面和马桶可见，残留物清楚；备品包装仍缺乏可核实细节。",
+      "items": [
+        {
+          "id": "basin_clean",
+          "status": "fail",
+          "evidence": "台盆内侧可见不规则黄褐色残留痕迹，需清洁后补拍。",
+          "bbox": [
+            0.2,
+            0.37,
+            0.3,
+            0.48
+          ]
+        },
+        {
+          "id": "toilet_clean",
+          "status": "pass",
+          "evidence": "马桶座圈及可见内壁未发现明显污渍；遮挡及隐蔽处不作判断。",
+          "bbox": null
+        },
+        {
+          "id": "towels",
+          "status": "unknown",
+          "evidence": "开放架内可见两件折叠白色巾类，但图片不能严格核实浴巾类型与规格。",
+          "bbox": null
+        },
+        {
+          "id": "amenities",
+          "status": "unknown",
+          "evidence": "托盘内可见两件长条包装物，无法从全景确认均为完整牙具套装。",
+          "bbox": null
+        }
+      ],
+      "record_id": "conversation-photo-5",
+      "sha256": "db829bf2223af5ce6f7a41817bf77bd8916150a73c118da4c9c09a491a077eb3",
+      "capture_tasks": [
+        "basin"
+      ]
+    },
+    {
+      "file": "bed-low-light.png",
+      "zone": "bedroom",
+      "usable": false,
+      "quality_reason": "明显欠曝并有噪点、轻微模糊；能识别床铺轮廓，细小污渍、异物与地面细节不可靠。",
+      "items": [
+        {
+          "id": "bed_neat",
+          "status": "unknown",
+          "evidence": "只能看出床铺大致轮廓，欠曝和模糊不足以核实整理细节。",
+          "bbox": null
+        },
+        {
+          "id": "linen_clean",
+          "status": "unknown",
+          "evidence": "床面明显偏暗，不能可靠判断污渍，需开灯重拍。",
+          "bbox": null
+        },
+        {
+          "id": "litter",
+          "status": "unknown",
+          "evidence": "地面及床边过暗，无法排除细小垃圾与遗留物。",
+          "bbox": null
+        },
+        {
+          "id": "floor_clean",
+          "status": "unknown",
+          "evidence": "地面纹理与污渍难以区分，需改善照明后补拍。",
+          "bbox": null
+        }
+      ],
+      "record_id": "conversation-photo-6",
+      "sha256": "0576830ddde29a9d7bcc27d537b492d0b44831e9d288b4d9d49a66bef18aa5eb",
+      "capture_tasks": [
+        "bed_overview"
+      ]
+    },
+    {
+      "file": "standard-bed-detail.png",
+      "zone": "bedroom",
+      "capture_tasks": [
+        "bed_detail"
+      ],
+      "sha256": "c2f31bf28d94dfbfd25d455857b14c3fd122e9ca70ad46094978b83e2236a2a4",
+      "record_id": "conversation-20261021-bed_detail",
+      "usable": true,
+      "quality_reason": "已在当前对话逐张打开图片观察；指定目标可见且细节清楚，仅作为合成素材离线观察。",
+      "items": [
+        {
+          "id": "linen_clean",
+          "status": "pass",
+          "evidence": "两只白色枕头与可见床单表面未发现明显污渍或毛发；正常纹理和褶皱不作缺陷，不能外推未拍区域。",
+          "bbox": null
+        }
+      ]
+    },
+    {
+      "file": "standard-floor.png",
+      "zone": "bedroom",
+      "capture_tasks": [
+        "floor_scene"
+      ],
+      "sha256": "3f9597523dedcd221326c4b022621481064bc1458242131b1ef2f0e9b5065f02",
+      "record_id": "conversation-20261021-floor_scene",
+      "usable": true,
+      "quality_reason": "已在当前对话逐张打开图片观察；指定目标可见且细节清楚，仅作为合成素材离线观察。",
+      "items": [
+        {
+          "id": "litter",
+          "status": "pass",
+          "evidence": "完整可见通道、床边与墙角地面未发现明显垃圾；床底暗区与床头柜内部未覆盖。",
+          "bbox": null
+        },
+        {
+          "id": "floor_clean",
+          "status": "pass",
+          "evidence": "可见瓷砖呈自然斑驳纹理，未发现明显异常污迹；不代表隐藏地面已清洁。",
+          "bbox": null
+        }
+      ]
+    },
+    {
+      "file": "standard-basin.png",
+      "zone": "bathroom",
+      "capture_tasks": [
+        "basin"
+      ],
+      "sha256": "5b3370c09c20c12908f3da5fa7ab92cd18de74b8f00231026606451919ba3726",
+      "record_id": "conversation-20261021-basin",
+      "usable": true,
+      "quality_reason": "已在当前对话逐张打开图片观察；指定目标可见且细节清楚，仅作为合成素材离线观察。",
+      "items": [
+        {
+          "id": "basin_clean",
+          "status": "pass",
+          "evidence": "台盆内壁、排水口与可见台面完整可见，未发现明显残留或杂物；石材纹理和反光未作为污渍。",
+          "bbox": null
+        }
+      ]
+    },
+    {
+      "file": "standard-toilet.png",
+      "zone": "bathroom",
+      "capture_tasks": [
+        "toilet"
+      ],
+      "sha256": "f0593b7c11dd707b05e509f813cdb13432bb1fadd03ba9b7439d257b2b1e4e3b",
+      "record_id": "conversation-20261021-toilet",
+      "usable": true,
+      "quality_reason": "已在当前对话逐张打开图片观察；指定目标可见且细节清楚，仅作为合成素材离线观察。",
+      "items": [
+        {
+          "id": "toilet_clean",
+          "status": "pass",
+          "evidence": "盖板打开，座圈和可见内壁清楚，未发现明显污渍或异物；看不到的背部与消毒过程不作结论。",
+          "bbox": null
+        }
+      ]
+    },
+    {
+      "file": "standard-supplies.png",
+      "zone": "bathroom",
+      "capture_tasks": [
+        "supplies"
+      ],
+      "sha256": "87292000f8ebeb8bc5f2c1017829ca31cc8ec06ab6d4645ec02672dec25f7432",
+      "record_id": "conversation-20261021-supplies",
+      "usable": true,
+      "quality_reason": "已在当前对话逐张打开图片观察；指定目标可见且细节清楚，仅作为合成素材离线观察。",
+      "items": [
+        {
+          "id": "towels",
+          "status": "unknown",
+          "evidence": "完整可见两条白色巾，但画面缺乏可靠尺寸参照，不能确认满足浴巾规格；仅数量可见为2。",
+          "bbox": null
+        },
+        {
+          "id": "amenities",
+          "status": "pass",
+          "evidence": "托盘内可见两个独立透明包装，每个包装内可辨一支牙刷和一小管膏状备品，符合演示的两套牙具外观数量；不验证有效期和实际封口。",
+          "bbox": null
+        }
+      ]
+    }
+  ]
+}
